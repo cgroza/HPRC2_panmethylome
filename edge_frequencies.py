@@ -2,13 +2,13 @@ import sys
 import re
 import gzip
 
-gfa = gzip.open(sys.argv[1], 'r')
+gfa = gzip.open(sys.argv[1], 'r', encoding = 'ascii')
 
 gfa_edges = {}
 
 for line in gfa:
     edge = None
-    match line.decode('ascii').split():
+    match line.split():
         case ["L", left, "+", right, "+"]:
             edge = ">" + left + ">" + right
         case ["L", left, "-", right, "+"]:
@@ -22,7 +22,6 @@ for line in gfa:
 
 
 for line in gfa:
-    line = line.decode('ascii')
     if line[0] != "W":
         continue
 

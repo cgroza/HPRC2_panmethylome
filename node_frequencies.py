@@ -2,12 +2,11 @@ import sys
 import re
 import gzip
 
-gfa = gzip.open(sys.argv[1], 'r')
+gfa = gzip.open(sys.argv[1], 'r', encoding = 'ascii')
 
 gfa_nodes = {}
 
 for line in gfa:
-    line = line.decode()
     if line[0] != "S":
         continue
     match line.split():
@@ -19,7 +18,6 @@ for line in gfa:
 gfa.seek(0)
 
 for line in gfa:
-    line = line.decode()
     if line[0] != "W":
         continue
 
