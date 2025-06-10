@@ -31,4 +31,4 @@ gfa.close()
 
 
 for node in gfa_nodes:
-    print(node, gfa_nodes[node][0])
+    print(node, gfa_nodes[node])
