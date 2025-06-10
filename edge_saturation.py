@@ -1,7 +1,7 @@
 import sys
 import re
 
-gfa = open(sys.argv[1], 'r')
+gfa = gzip.open(sys.argv[1], 'rt', encoding = 'ascii')
 
 cpg = open(sys.argv[2], 'r')
 

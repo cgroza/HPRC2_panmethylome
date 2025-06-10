@@ -1,7 +1,8 @@
 #!/usr/bin/env pypy3
 import sys
+import gzip
 
-gfa = open(sys.argv[1])
+gfa = gzip.open(sys.argv[1], 'rt', encoding = 'ascii')
 
 i = 0
 for s in gfa:

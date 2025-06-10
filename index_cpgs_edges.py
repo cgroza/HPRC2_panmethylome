@@ -1,6 +1,7 @@
 import sys
+import gzip
 
-gfa = open(sys.argv[1])
+gfa = gzip.open(sys.argv[1], 'rt', encoding = 'ascii')
 
 node_ends = {}
 
