@@ -9,13 +9,13 @@ gfa_edges = {}
 for line in gfa:
     edge = None
     match line.split():
-        case ["L", left, "+", right, "+"]:
+        case ["L", left, "+", right, "+", *rest]:
             edge = ">" + left + ">" + right
-        case ["L", left, "-", right, "+"]:
+        case ["L", left, "-", right, "+", *rest]:
             edge = "<" + left + ">" + right
-        case ["L", left, "+", right, "-"]:
+        case ["L", left, "+", right, "-", *rest]:
             edge = ">" + left + "<" + right
-        case ["L", left, "-", right, "-"]:
+        case ["L", left, "-", right, "-", *rest]:
             edge = "<" + left + "<" + right
             # save first and last nucleotide for each node
     gfa_edges[edge] = 0
