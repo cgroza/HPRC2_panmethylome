@@ -2,11 +2,14 @@ import sys
 import re
 import gzip
 
-flip = {'>' : '<', '<' : '>'}
-
 gfa = gzip.open(sys.argv[1], 'rt', encoding = 'ascii')
 
 gfa_edges = {}
+
+flip = {'>' : '<', '<' : '>'}
+
+def complement(edge):
+    return (flip[edge[2]], edge[3], flip[edge[0]], edge[1])
 
 for line in gfa:
     edge = None
@@ -36,12 +39,12 @@ for line in gfa:
     for edge in edges:
         edge_str = "".join(edge)
         if edge_str in gfa_edges:
-            gfa_edges[edge] = gfa_edges[edge] + 1
+            gfa_edges[edge_str] = gfa_edges[edge] + 1
         # complement edge
         else:
-            edge = (flip[edge[2]], edge[3], flip[edge[0]], edge[1])
+            edge = complement(edge)
             edge_str = "".join(edge)
-            gfa_edges[edge] = gfa_edges[edge] + 1
+            gfa_edges[edge_str] = gfa_edges[edge] + 1
 gfa.close()
 
 for edge in gfa_edges:
