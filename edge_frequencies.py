@@ -20,6 +20,7 @@ for line in gfa:
             # save first and last nucleotide for each node
     gfa_edges[edge] = 0
 
+gfa.seek(0)
 
 for line in gfa:
     if line[0] != "W":
