@@ -1,5 +1,6 @@
 import sys
 import re
+import gzip
 
 gfa = gzip.open(sys.argv[1], 'rt', encoding = 'ascii')
 
