@@ -41,7 +41,7 @@ for line in gfa:
         if "".join(edge) in cpgs and cpgs[edge] is None:
             cpgs[edge] = current_hap_i
         # handle complement edge
-        elif "".join(complement(edge)) in cpgs and cpgs[edge] is None:
+        elif "".join(complement(edge)) in cpgs and cpgs["".join(complement(edge))] is None:
             cpgs["".join(complement(edge))] = current_hap_i
 gfa.close()
 
