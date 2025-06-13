@@ -39,12 +39,12 @@ for line in gfa:
     for edge in edges:
         edge_str = "".join(edge)
         if edge_str in gfa_edges:
-            gfa_edges[edge_str] = gfa_edges[edge] + 1
+            gfa_edges[edge_str] = gfa_edges[edge_str] + 1
         # complement edge
         else:
             edge = complement(edge)
             edge_str = "".join(edge)
-            gfa_edges[edge_str] = gfa_edges[edge] + 1
+            gfa_edges[edge_str] = gfa_edges[edge_str] + 1
 gfa.close()
 
 for edge in gfa_edges:
