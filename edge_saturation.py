@@ -38,8 +38,8 @@ for line in gfa:
     edges = [tuple(nodes[i:i + 4]) for i in range(0, len(nodes), 2)][:-1]
 
     for edge in edges:
-        if "".join(edge) in cpgs and cpgs[edge] is None:
-            cpgs[edge] = current_hap_i
+        if "".join(edge) in cpgs and cpgs["".join(edge)] is None:
+            cpgs["".join(edge)] = current_hap_i
         # handle complement edge
         elif "".join(complement(edge)) in cpgs and cpgs["".join(complement(edge))] is None:
             cpgs["".join(complement(edge))] = current_hap_i
