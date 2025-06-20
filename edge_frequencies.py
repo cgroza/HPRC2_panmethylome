@@ -22,7 +22,8 @@ for line in gfa:
             edge = ">" + left + "<" + right
         case ["L", left, "-", right, "-", *rest]:
             edge = "<" + left + "<" + right
-    gfa_edges[edge] = 0
+    if edge is not None:
+        gfa_edges[edge] = 0
 
 gfa.seek(0)
 
