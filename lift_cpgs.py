@@ -36,7 +36,6 @@ for line in gfa:
     # unless we have clipped contig
     if '[' in p_name:
         hap_name = p_name.split('[')[0]
-        print(p_name.split('['))
         hap_start = int(p_name.split('[')[1].split('-')[0])
 
     i = 0
