@@ -71,7 +71,7 @@ for line in gfa:
             edge_name = strands_[cedge[0]] + str(cedge[1]) + ' ' + strands_[cedge[2]] + str(cedge[3])
 
         if edge in cpg_index or cedge in cpg_index:
-            print(hap_name, hap_start + i + node_lengths[edge[1]], edge_name, sep = '\t')
+            print(hap_name, hap_start + i + node_lengths[edge[1]] - 1, hap_start + i + node_lengths[edge[1]] + 1 , edge_name, sep = '\t')
         # move the position past the edge
         i += node_lengths[edge[1]]
 

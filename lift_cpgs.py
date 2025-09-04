@@ -5,6 +5,9 @@ cpg_index = dict()
 with open(sys.argv[1], 'r') as cpgs_file:
     for line in cpgs_file:
         node, offset, strand = line.rstrip().split(',')
+        # no need to lift both nucleotides
+        if strand == '-':
+            continue
         if int(node) not in cpg_index:
             cpg_index[int(node)] = []
         cpg_index[int(node)].append((int(offset), strand))
@@ -43,9 +46,15 @@ for line in gfa:
         node_name = int(node[:-1])
         strand = node[-1]
 
+        offset = cpg[0]
+        # node lies reversed along assembly
+        if strand == '-':
+            # 0 based coordinates, flip offset
+            offset = node_lengths[node_name] - offset - 1
+
         if node_name in cpg_index:
             for cpg in cpg_index[node_name]:
-                print(hap_name, hap_start + i + cpg[0], str(node_name) + ',' + str(cpg[0]) + ',' + cpg[1], sep = '\t')
+                print(hap_name, hap_start + i + offset, hap_start + i + offset + 2, str(node_name) + ',' + str(cpg[0]) + ',' + cpg[1], sep = '\t')
 
         i += node_lengths[node_name]
 
