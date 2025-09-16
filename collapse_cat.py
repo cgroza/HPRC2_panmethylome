@@ -14,6 +14,9 @@ def make_record():
 for line in cat:
     cpg_conting, cpg_start, cpg_end, cpg_id, _, annot, feature , _, _, _, _, _, desc = line.split('\t')
 
+    if cpg_id not in cpg_annot:
+        cpg_annot[cpg_id] = make_record()
+
     if annot == '.':
         continue
 
@@ -23,8 +26,6 @@ for line in cat:
     except:
         pass
 
-    if cpg_id not in cpg_annot:
-        cpg_annot[cpg_id] = make_record()
 
     cpg_annot[cpg_id].add(feature + ':' + gene)
 
