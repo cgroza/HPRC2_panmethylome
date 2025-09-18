@@ -18,7 +18,7 @@ for line in sv:
         continue
 
     # cpg_annot[cpg_id].add(asm_contig + ':' + asm_start + '-' + asm_end + ':' + sv_type)
-    cpg_annot[cpg_id].add(sv_type)
+    cpg_annot[cpg_id].add(asm_contig + ":" + sv_type)
 
 for cpg_id in cpg_annot:
     print(cpg_id, ";".join(cpg_annot[cpg_id]), sep = '\t')
