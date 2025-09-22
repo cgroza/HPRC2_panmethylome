@@ -22,4 +22,4 @@ for line in repmask:
     cpg_annot[cpg_id].add(rep_fam)
 
 for cpg_id in cpg_annot:
-    print(cpg_id, ";".join(cpg_annot[cpg_id]), sep = '\t')
+    print(cpg_id, ";".join(sorted(cpg_annot[cpg_id])), sep = '\t')
