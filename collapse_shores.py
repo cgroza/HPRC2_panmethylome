@@ -15,7 +15,7 @@ for line in shores:
     if cpg_id not in cpg_annot:
         cpg_annot[cpg_id] = make_record()
 
-    if asm_start == '.':
+    if asm == '.':
         continue
 
     cpg_annot[cpg_id].add("T")
