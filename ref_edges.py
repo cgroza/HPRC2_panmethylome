@@ -47,6 +47,6 @@ for line in gfa:
         if cedge in cpg_index:
             edge_name = strands_[cedge[0]] + str(cedge[1]) + ' ' + strands_[cedge[2]] + str(cedge[3])
 
-        if edge or cedge in cpg_index:
+        if edge in cpg_index or cedge in cpg_index:
             print(edge_name)
 gfa.close()
