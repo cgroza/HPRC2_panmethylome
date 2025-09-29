@@ -21,4 +21,4 @@ for line in segdups:
     cpg_annot[cpg_id].add(segdup_id)
 
 for cpg_id in cpg_annot:
-    print(cpg_id, ";".join(cpg_annot[cpg_id]), sep = '\t')
+    print(cpg_id, len(cpg_annot[cpg_id]), sep = '\t')
