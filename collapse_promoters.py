@@ -8,7 +8,7 @@ cpg_annot = dict()
 def make_record():
     return 0
 
-for line in segdups:
+for line in promoters:
     cpg_contig, cpg_start, cpg_end, cpg_id, asm_contig, asm_start, asm_end = line.rstrip().split('\t')
 
     if cpg_id not in cpg_annot:
