@@ -15,8 +15,8 @@ for line in cpgs:
         cpg_annot[cpg_id] = make_record()
 
     genome = cpg_contig.split("#")[:2]
-    if genome.startswith("CHM13") or genome.startwith("GRCh38"):
-        genome = genome[0]
+    if genome[0].startswith("CHM13") or genome[0].startwith("GRCh38"):
+        genome = genome[:1]
 
     cpg_annot[cpg_id].add("#".join(genome))
 
