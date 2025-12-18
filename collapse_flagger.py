@@ -1,14 +1,14 @@
 import gzip
 import sys
 
-promoters = gzip.open(sys.argv[1], 'rt')
+flagger = gzip.open(sys.argv[1], 'rt')
 
 cpg_annot = dict()
 
 def make_record():
     return set()
 
-for line in promoters:
+for line in flagger:
     cpg_contig, cpg_start, cpg_end, cpg_id, asm_contig, asm_start, asm_end, err_type, _, _, err_start, err_end, rgb = line.rstrip().split('\t')
 
     if cpg_id not in cpg_annot:
