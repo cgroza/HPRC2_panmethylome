@@ -16,7 +16,7 @@ for line in flagger:
 flagger.close()
 
 header = segdups.readline().split('\t')
-print('\t'.join(header))
+sys.stdout.write('\t'.join(header))
 
 for line in segdups:
     fields = dict(zip(header, line.split('\t')))
