@@ -11,7 +11,7 @@ while True:
 
     assert cpg_id1 == cpg_id2
 
-    if int(depth1) + int(depth2):
+    if int(depth1) + int(depth2) == 0:
         print(node1, offset1, strand1,
             "0", "0",
             cpg_id1, sep = '\t')
