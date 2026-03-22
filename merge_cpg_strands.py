@@ -1,5 +1,6 @@
 import sys
 
+print(sys.stdin.readline().rstrip())
 while True:
     line1 = sys.stdin.readline()
     line2 = sys.stdin.readline()
