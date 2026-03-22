@@ -12,14 +12,14 @@ while True:
 
     assert cpg_id1 == cpg_id2
 
-    if int(depth1) + int(depth2) == 0:
+    if float(depth1) + float(depth2) < 1:
         print(node1, offset1, strand1,
             "0", "0",
             cpg_id1, sep = '\t')
         continue
 
     print(node1, offset1, strand1,
-          int(depth1) + int(depth2),
-          (float(score1) * int(depth1) + float(score2) * int(depth2))/(int(depth1) + int(depth2)),
+          float(depth1) + float(depth2),
+          (float(score1) * float(depth1) + float(score2) * float(depth2))/(float(depth1) + float(depth2)),
           cpg_id1, sep = '\t')
 
