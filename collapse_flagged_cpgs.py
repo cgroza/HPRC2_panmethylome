@@ -7,7 +7,7 @@ cpgs = gzip.open(sys.argv[1], 'rt')
 
 cpg_annot = dict()
 
-bf = rbloom.Bloom(464 * 53e6, 0.1)
+bf = rbloom.Bloom(int(464 * 53e6), 0.1)
 
 def make_record():
     return 0
