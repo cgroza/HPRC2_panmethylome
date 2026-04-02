@@ -22,9 +22,11 @@ for line in cpgs:
     if genome[0].startswith("CHM13") or genome[0].startswith("GRCh38"):
         genome = genome[:1]
 
-    if "#".join(genome) not in bf:
+    bf_id = "#".join(genome + "," + cpg_id)
+
+    if bf_id not in bf:
         cpg_annot[cpg_id] = cpg_annot[cpg_id] + 1
-        bf.add("#".join(genome))
+        bf.add(bf_id)
 
 for cpg_id in cpg_annot:
     print(cpg_id, cpg_annot[cpg_id], sep = '\t')
