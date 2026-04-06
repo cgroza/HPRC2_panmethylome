@@ -4,9 +4,11 @@ cpg_index = dict()
 
 with open(sys.argv[1], 'r') as cpgs_file:
     for line in cpgs_file:
-        node, offset, strand = line.rstrip().split(',')
+        node, offset, strand, cpgid = line.rstrip().split('\t')
         # no need to lift both nucleotides
         if strand == '-':
+            continue
+        if  ' ' in cpgid:
             continue
         if int(node) not in cpg_index:
             cpg_index[int(node)] = []
