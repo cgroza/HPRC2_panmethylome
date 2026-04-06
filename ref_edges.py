@@ -11,7 +11,10 @@ strands_ = {'+' : '>', '-' : '<'}
 
 with open(sys.argv[1], 'r') as cpgs_file:
     for line in cpgs_file:
-        left, right = line.rstrip().split()
+        _, _, _, cpgid = line.split('\t')
+        if ' ' not in cpgid:
+            continue
+        left, right = cpgid.rstrip().split(' ')
         lstrand = strands[left[0]]
         rstrand = strands[right[0]]
 
