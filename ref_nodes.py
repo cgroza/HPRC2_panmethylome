@@ -12,7 +12,7 @@ with open(sys.argv[1], 'r') as cpgs_file:
             continue
         if int(node) not in cpg_index:
             cpg_index[int(node)] = []
-        cpg_index[int(node)].append((int(offset), strand))
+        cpg_index[int(node)].append(cpgid)
 
 gfa = open(sys.argv[2], 'r')
 
@@ -29,15 +29,9 @@ for line in gfa:
 
     for node in hap_seq:
         node_name = int(node[:-1])
-        strand = node[-1]
-
         if node_name in cpg_index:
             for cpg in cpg_index[node_name]:
-                offset = cpg[0]
                 # node lies reversed along assembly
-                if strand == '-':
-                    # 0 based coordinates, flip offset
-                    offset = node_lengths[node_name] - offset - 1
-                print(str(node_name) + ',' + str(cpg[0]) + ',' + cpg[1])
+                print(cpg)
 
 gfa.close()
